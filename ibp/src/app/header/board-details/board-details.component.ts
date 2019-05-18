@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardDetail, PostDetails, ImagesAttachment } from '../../shared/interfaces/board-detail.interfaces';
+import { BoardDetail, PostDetails, ImagesAttachment, PostContent } from '../../shared/interfaces/board-detail.interfaces';
 import { BoardDetailService } from '../../services/board-detail.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -30,19 +30,21 @@ export class BoardDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.boardDetailService.getAllPosts(this.boardName).subscribe((data:BoardDetail) => {
-      this.boardDetail = data});
+      this.boardDetail = data;
+      console.log(this.boardDetail);
+    });
   }
 
   setActiveBigImage(image: string){
     this.bigImage = image;
   }
 
-  getImageAttachment(post: PostDetails){
-    let attachments = post.content.images.map(a => a.file);
+  getImageAttachment(content: PostContent){
+    let attachments = content.images.map(a => a.file);
     return attachments;
   }
 
   addBaseUrl(source: string){
     return this.baseUrl + source;
   };
-}
+};

@@ -1,17 +1,28 @@
-        <button (click)="toggleCreateBoard()" type="submit" class="create-board">Створити дошку</button>
-    <div [ngClass]="{invisible: showCreateForm}" class="create-board-container invisible">  
-        <form id="board" action="" method="post">
-            <fieldset [formGroup]="createBoard">
-                <input formControlName="short_name" [(ngModel)]="createNewBoard.short_name" placeholder="скороченна назва" type="text" autofocus required>
-                <input formControlName="name" [(ngModel)]="createNewBoard.name" placeholder="назва" type="text" required>
-                <input formControlName="description" [(ngModel)]="createNewBoard.description" placeholder="опис" type="text" required>
-                <button (click)="addBoard()"  type="submit">Створити</button>
-                <button (click)="toggleCancelBoard()" style="background-color: #a52a2a" type="submit">Відмінити</button>
-            </fieldset>
-        </form>
-    </div>
-    <ul class="category-list clearfix">
-        <li class="category-item" *ngFor="let board of boards"> 
-            <a class="category-name" [routerLink] = "['/boards', board.short_name]" >{{board.name}}</a>
-        </li>
-    </ul>
+    <p class="logo">7 Star Leaf</p>
+<div [ngClass]="{invisible: showCreateForm}" class="create-board-container invisible">  
+    <form id="board" action="" method="post">
+        <fieldset [formGroup]="createBoard">
+            <input formControlName="short_name" [(ngModel)]="createNewBoard.short_name" placeholder="скороченна назва" type="text" autofocus required>
+            <input formControlName="name" [(ngModel)]="createNewBoard.name" placeholder="назва" type="text" required>
+            <input formControlName="description" [(ngModel)]="createNewBoard.description" placeholder="опис" type="text" required>
+            <button (click)="addBoard()"  type="submit">Створити</button>
+            <button (click)="toggleCancelBoard()" style="background-color: #a52a2a" type="submit">Відмінити</button>
+        </fieldset>
+    </form>
+</div>
+
+<div class="boards-list">
+    <p><strong>"7StarLeaf"</strong>- це анонімний форум, де кожен може залишати повідомлення без реєстрації.
+        Користувачам не потрібно проходити додаткові процедури для того, щоб стати частиною громади, проте 
+        варто прочитати <a href="/rules">Правила.</a>
+        Окрім того, форум "7StafLeaf" орієнтований на широке застосування зображень та медіа-файлів, які мають 
+        доповнювати думку автора повідомлення.</p>
+</div>
+
+<div class="boards-list">
+  <ul class="category-list clearfix">
+    <li class="category-item" *ngFor="let board of boards">
+      <a class="category-name" [routerLink] = "['/boards', board.short_name]" >/{{board.short_name}}/ - {{board.name}}</a>
+    </li>
+  </ul>
+</div>

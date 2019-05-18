@@ -38,6 +38,7 @@ import { AdminComponent } from './header/cabinet/admin/admin.component';
 import { ReportsComponent } from './header/cabinet/admin/reports/reports.component';
 import { ManageboardsComponent } from './header/cabinet/admin/manageboards/manageboards.component';
 import { ManageusersComponent } from './header/cabinet/admin/manageusers/manageusers.component';
+import { RepliesComponent } from './replies/replies.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ManageusersComponent } from './header/cabinet/admin/manageusers/manageu
     ReportsComponent,
     ManageboardsComponent,
     ManageusersComponent,
+    RepliesComponent,
   ],
 
   imports: [

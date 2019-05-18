@@ -23,9 +23,17 @@ export class PostService {
   let formData: FormData = new FormData();
       formData.append('post[subject]', post.subject);
       formData.append('post[replies_attributes][text]', post.text);
-      formData.append('post[replies_attributes][attachments_attributes][]', post.file, post.file.name);
 
+      for (let i = 0; i < post.files.length; i++) {
+        let file = post.files.item(i);
+        formData.append('post[replies_attributes][attachments_attributes][]', file, file.name);  
+      }
+      
       return this.http.post<any>(this.baseApi + 'posts/'+ boardShortName, formData);
   
   };
+
+  getReplyForPost(board_index: string, post_index: string){
+    return this.http.get<Post[]>(this.baseApi + 'posts/' + board_index + '/' + post_index);
+  }
 };

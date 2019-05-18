@@ -1,3 +1,23 @@
-<p>
-  manageboards works!
-</p>
+<button (click)="toggleCreateBoard()" type="submit" class="create-board">Створити дошку</button>
+
+<div [ngClass]="{invisible: showCreateForm}" class="create-board-container invisible">  
+<form id="create-board" action="" method="post">
+    <fieldset [formGroup]="createBoard">
+        <input formControlName="short_name" [(ngModel)]="createNewBoard.short_name" placeholder="скороченна назва" 
+          type="text" class="input-info" autofocus required>
+        <input formControlName="name" [(ngModel)]="createNewBoard.name" placeholder="назва" 
+          type="text" class="input-info" required>
+        <input formControlName="description" [(ngModel)]="createNewBoard.description" placeholder="опис" 
+          type="text" class="input-info" required>
+        <button (click)="addBoard()"  type="submit" class="btn">Створити</button>
+        <button (click)="toggleCancelBoard()" style="background-color: #a52a2a" type="submit" class="btn">Відмінити</button>
+    </fieldset>
+</form>
+</div>
+<div class="boards-list">
+  <ul class="category-list clearfix">
+    <li class="category-item" *ngFor="let board of boards">
+      <a class="category-name" [routerLink] = "['/boards', board.short_name]" >/{{board.short_name}}/ - {{board.name}}</a>
+    </li>
+  </ul>
+</div>

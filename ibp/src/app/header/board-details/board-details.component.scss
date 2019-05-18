@@ -6,15 +6,60 @@
     display: flex;
     text-align: center;
     border: none;
-    border-radius: 10px;
-    background: #4CAF50;
-    color: #ffffff;
+    background-color: #ededed;
+    color: #ff7000;
     margin: 15px auto;
     padding: 10px;
     font-size: 15px;
 }
 
-.link-button {
+ .create-post:hover{
+     color: #000000;
+ }
+
+.link-button .index-style {
     text-decoration: none;
-    color: #ffffff;   
+    color: #ff7000;   
+}
+
+.link-button:hover {
+    color: #c75b08;
+}
+
+.single-post {
+    display: block;
+    background-color: #dddddd;
+    border : 1px solid #808080;
+    margin-top: 5px;
+}
+
+.create-replies {
+    border: none;
+    background-color: #dddddd;
+}
+
+.reply-visible {
+    display: block;
+    background-color: #dddddd;
+    border : 1px solid #808080;
+    margin: 10px 50px;
+}
+
+.index-style {
+    color: #ff7000;   
+}
+
+.show-btn {
+    border: none;
+    background-color: #808080;
+    margin: 10px;
+    font-size: 1em;
+}
+
+.text{
+    display: inline;
+}
+
+.preview-img{
+    display: inline;
 }

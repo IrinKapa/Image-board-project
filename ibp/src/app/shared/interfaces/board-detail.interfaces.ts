@@ -1,13 +1,16 @@
+import { Reply } from './reply.interfaces';
+
 export interface BoardDetail {
     name: string;
     short_name: string;
     posts: PostDetails[];  
 }
 
-export interface PostDetails {
+export interface PostDetails  {
     subject: string;
     pinned: boolean;
     content: PostContent;
+    post_preview: PostContent[];
     }
 
 export interface PostContent{

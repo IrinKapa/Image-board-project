@@ -23,11 +23,14 @@ import { AdminComponent } from './header/cabinet/admin/admin.component';
 import { ReportsComponent } from './header/cabinet/admin/reports/reports.component';
 import { ManageusersComponent } from './header/cabinet/admin/manageusers/manageusers.component';
 import { ManageboardsComponent } from './header/cabinet/admin/manageboards/manageboards.component';
+import { RepliesComponent } from './replies/replies.component';
 
 const routes: Routes = [
-  {path: 'boards', component: BoardsComponent},
+  {path: '', component: BoardsComponent},
+  // {path: 'boards', component: BoardsComponent},
   {path: 'boards/:short_name', component: BoardDetailsComponent},
   {path: 'boards/:board_index/createpost', component: PostsComponent},
+  {path: 'boards/:board_index/:post_index/createreplies', component: RepliesComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent, canActivate: [NotauthGuard]},
   {path: 'rules', component: RulesComponent},
@@ -38,7 +41,7 @@ const routes: Routes = [
     {path: 'invites', component: InviteuserComponent},
     {path: 'posts', component: MypostsComponent},
     {path: 'mentions', component: MymentionsComponent},
-    {path: 'admin', component: AdminComponent, children: [
+    {path: 'admin', children: [
       {path: 'reports', component: ReportsComponent},
       {path: 'boards', component: ManageboardsComponent},
       {path: 'users', component: ManageusersComponent},

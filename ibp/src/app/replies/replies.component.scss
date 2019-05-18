@@ -1,0 +1,44 @@
+  div {
+    display: block;
+  }
+
+  .replies-form {
+    width: 450px;
+    margin: 0 auto;
+    font-size: 0.9em;
+    text-align: left;
+  }
+
+  form {
+      display: block;
+  }
+    
+  p {
+    font-size: 20px;
+      color: #cc7722;
+      text-align: center;
+      margin: 0, auto;
+  }
+
+  .btn {
+      border: 1px solid black;
+      block-size: 15px;
+      margin: 0px 3px;
+  }
+  
+  .attach-button {
+      display: flex;
+      text-align: center;
+      border: none;
+      border-radius: 10px;
+      background:#DDD;
+      color: #aaa;
+      margin: 15px auto;
+      padding: 10px;
+      font-size: 15px;
+      cursor: pointer;
+  }
+
+  .attach-button:hover {
+    color: #000000;
+  }

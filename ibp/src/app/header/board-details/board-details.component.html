@@ -1,22 +1,31 @@
 
   <button type="submit" class="create-post">
-    <a class="link-button" routerLink = "/boards/{{boardName}}/createpost">Create new tred</a>
+    <a class="link-button" routerLink = "/boards/{{boardName}}/createpost">Створити пост</a>
   </button>
-  <div *ngIf="boardDetail">
-    
-    <div *ngIf="bigImage">
-      <img src = {{bigImage}}  alt="pictures" (click)="setActiveBigImage(null)">
-    </div>
-
+  <div class="post-wrapper" *ngIf="boardDetail">
     <div class="single-post" *ngFor="let post of boardDetail.posts">
-      <p>{{post.subject}}</p> 
-      <span [innerHtml]= 'post.content.text'></span>
-      <span>{{post.content.created_at}}</span>
-
-      
-      <div *ngFor="let file of getImageAttachment(post)">
-        <img src = {{addBaseUrl(file.thumb.url)}}  alt="pictures" (click)="setActiveBigImage(addBaseUrl(file.url))">
-      </div>
+      <p class="text">{{post.subject}} 
+        <span>{{post.content.created_at}} </span>
+        <button type="submit" class="create-replies">
+          <a class="link-button" routerLink = "/boards/{{boardName}}/{{post.content.index}}/createreplies"  title="Коментувати">
+            {{post.content.index}}</a>
+        </button></p>
+        <span [innerHtml]= 'post.content.text'></span>
+        <div *ngIf="bigImage">
+          <img src = {{bigImage}}  alt="pictures" (click)="setActiveBigImage(null)">
+        </div>
+        <div class="preview-img" *ngFor="let file of getImageAttachment(post.content)">
+          <img src = {{addBaseUrl(file.thumb.url)}}  alt="pictures" (click)="setActiveBigImage(addBaseUrl(file.url))">
+        </div>
+        <div *ngFor="let prev of post.post_preview">
+          <div class="reply-visible">
+            <p><span class="index-style">{{prev.index}}</span> <span>{{prev.created_at}}</span></p>
+            <span [innerHtml]='prev.text'></span>
+            <div *ngFor="let file of getImageAttachment(prev)">
+              <img src = {{addBaseUrl(file.thumb.url)}}  alt="pictures" (click)="setActiveBigImage(addBaseUrl(file.url))">
+            </div>
+          </div>
+        </div> 
     </div>
-  <div>
+  </div>                 
       

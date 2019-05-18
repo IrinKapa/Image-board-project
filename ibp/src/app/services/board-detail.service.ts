@@ -22,4 +22,7 @@ export class BoardDetailService {
   getAllPosts(shortName:string){
     return this.http.get<BoardDetail>(this.baseApi + 'boards/' + shortName);
   };
+  // getAllReplies (shortName: string){
+  //   return this.http.get<BoardDetail>(this.baseApi + 'replies/' + shortName);
+  //   }
 }
